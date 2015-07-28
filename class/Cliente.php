@@ -22,7 +22,7 @@ class Cliente
 
     public function setNome($nome)
     {
-        $this->nome = $nome;
+        $this->nome = utf8_encode($nome);
     }
 
     public function getSobrenome()
@@ -32,7 +32,7 @@ class Cliente
 
     public function setSobrenome($sobrenome)
     {
-        $this->sobrenome = $sobrenome;
+        $this->sobrenome = utf8_encode($sobrenome);
     }
 
     public function getCpf()
@@ -52,7 +52,7 @@ class Cliente
 
     public function setEndereco($endereco)
     {
-        $this->endereco = $endereco;
+        $this->endereco = utf8_encode($endereco);
     }
 
     public function getIdade()
@@ -83,5 +83,19 @@ class Cliente
     public function setSexo($sexo)
     {
         $this->sexo = $sexo;
+    }
+
+    public function getAll()
+    {
+        $array['cpf'] = $this->cpf;
+        $array['nome'] = $this->nome;
+        $array['sobrenome'] = $this->sobrenome;
+        $array['cpf'] = $this->cpf;
+        $array['endereco'] = $this->endereco;
+        $array['idade'] = $this->idade;
+        $array['telefone'] = $this->telefone;
+        $array['sexo'] = $this->sexo;
+
+        return $array;
     }
 }

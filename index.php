@@ -4,76 +4,35 @@ $orderID = $orderNome = 'DESC';
 $class_link_id = $class_link_nome = 'bottom';
 
 if (!empty($_GET)) {
-    if (isset($_GET['order']) && $_GET['order'] == 'DESC') {
-        if ($_GET['by'] == 'ID') {
+    $order = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_STRING);
+    $by = filter_input(INPUT_GET, 'by', FILTER_SANITIZE_STRING);
+    if (isset($order) && $order == 'DESC') {
+        if ($by == 'ID') {
             $orderID = 'ASC';
             $class_link_id = 'top';
             krsort($array_clientes);
         }
-        if ($_GET['by'] == 'nome') {
+        if ($by == 'nome') {
             $orderNome = 'ASC';
             $class_link_nome = 'top';
             asort($array_clientes);
         }
     }else{
-        if ($_GET['by'] == 'ID') {
+        if ($by == 'ID') {
             ksort($array_clientes);
         }
-        if ($_GET['by'] == 'nome') {
+        if ($by == 'nome') {
             arsort($array_clientes);
         }
     }
 }
 
-
+include_once 'topo.php';
 ?>
-<!DOCTYPE HTML>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Curso Code Education | POO</title>
-    <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/base.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Projeto POO</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="/">Clientes</a></li>
-                <li><a href="/">Contato</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
+    <div class="bs-callout bs-callout-info">
+        <h1>Lista de Clientes</h1>
     </div>
-</nav>
-
-
-<div class="container">
-
+    <br>
     <table class="table table-bordered table-hover">
         <tr>
             <th><a href="?order=<?php echo $orderID; ?>&by=ID">ID <i
@@ -85,23 +44,10 @@ if (!empty($_GET)) {
         </tr>
         <?php foreach ($array_clientes as $key => $cliente): ?>
             <tr>
-                <td><?php echo $key; ?></td>
-                <td><?php echo $cliente->getNome(); ?></td>
-                <td><?php echo $cliente->getSobrenome(); ?></td>
+                <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $key; ?></a></td>
+                <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $cliente->getNome(); ?></a></td>
+                <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $cliente->getSobrenome(); ?></a></td>
             </tr>
         <?php endforeach ?>
     </table>
-
-</div>
-<!-- /container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+<?php include_once 'rodape.php';
