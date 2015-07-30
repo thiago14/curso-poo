@@ -1,5 +1,7 @@
 <?php
-require_once 'dados/dados_clientes.php';
+include_once 'topo.php';
+require_once 'src/TMO/Dados/dados_clientes.php';
+
 $orderID = $orderNome = 'DESC';
 $class_link_id = $class_link_nome = 'bottom';
 
@@ -26,8 +28,6 @@ if (!empty($_GET)) {
         }
     }
 }
-
-include_once 'topo.php';
 ?>
     <div class="bs-callout bs-callout-info">
         <h1>Lista de Clientes</h1>

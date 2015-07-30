@@ -1,3 +1,7 @@
+<?php
+define('DS', DIRECTORY_SEPARATOR);
+define('WWW', dirname(__FILE__).DS.'src'.DS);
+require_once('src/TMO/autoload.php'); ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
