@@ -1,6 +1,7 @@
 .container .table a { color: black; font-size: 14px; text-decoration: none;}
 .container .table td:hover a { color: darkcyan; text-decoration: underline;}
 .container .table a i { color: black; font-size: 10px; }
+.container .table td i.glyphicon-star { color: gold; }
 .bs-callout { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 3px;}
 .bs-callout-danger { border-left-color: #ce4844;}
 .bs-callout-info { border-left-color: #1b809e;}

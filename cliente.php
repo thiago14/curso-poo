@@ -4,7 +4,7 @@ include_once 'topo.php';
 require_once 'src/TMO/Dados/dados_clientes.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-if (empty($id)) { ?>
+if (empty($id) && $id != 0) { ?>
     <div class="bs-callout bs-callout-danger">
         <h1>Ops! Faltou o ID do cliente.</h1>
         <h2>Tente novamente clicando em um cliente na p&aacute;gina anterior.</h2>
@@ -27,7 +27,7 @@ if (empty($id)) { ?>
         foreach ($clienteAll as $key => $value):
             ?>
             <tr>
-                <td><?php echo $key; ?></td>
+                <td><?php echo ucfirst($key); ?></td>
                 <td><?php echo $value; ?></td>
             </tr>
         <?php endforeach; ?>

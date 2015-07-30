@@ -1,4 +1,6 @@
 <?php
+use TMO\Classes\Pessoas\Types\PessoaFisica;
+
 include_once 'topo.php';
 require_once 'src/TMO/Dados/dados_clientes.php';
 
@@ -35,18 +37,19 @@ if (!empty($_GET)) {
     <br>
     <table class="table table-bordered table-hover">
         <tr>
-            <th><a href="?order=<?php echo $orderID; ?>&by=ID">ID <i
-                        class="glyphicon glyphicon-triangle-<?php echo $class_link_id ?>"></i></a></th>
-            <th><a href="?order=<?php echo $orderNome; ?>&by=nome">Nome <i
-                        class="glyphicon glyphicon-triangle-<?php echo $class_link_nome ?>"></i></a></th>
-            <th><a href="?order=<?php echo $orderSobrenome; ?>&by=sobrenome">Sobrenome <i
-                        class="glyphicon glyphicon-triangle-<?php echo $class_link_sobre ?>"></i></a></th>
+            <th><a href="?order=<?php echo $orderID; ?>&by=ID">ID <i class="glyphicon glyphicon-triangle-<?php echo $class_link_id ?>"></i></a></th>
+            <th><a href="?order=<?php echo $orderNome; ?>&by=nome">Nome <i class="glyphicon glyphicon-triangle-<?php echo $class_link_nome ?>"></i></a></th>
+            <th>Sobrenome</th>
+            <th>Tipo Cliente</th>
+            <th>Classifica&ccedil;&atilde;o</th>
         </tr>
         <?php foreach ($array_clientes as $key => $cliente): ?>
             <tr>
                 <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $key; ?></a></td>
                 <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $cliente->getNome(); ?></a></td>
                 <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php echo $cliente->getSobrenome(); ?></a></td>
+                <td><a href="/ProjetoPOO/cliente.php?id=<?php echo $key ?>"><?php if($cliente instanceof PessoaFisica){ echo 'Pessoa F&iacute;sica'; }else { echo 'Pessoa Jur&iacute;dica';} ?></a></td>
+                <td><?php echo $cliente->getClassificacao(); ?></td>
             </tr>
         <?php endforeach ?>
     </table>

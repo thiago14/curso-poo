@@ -19,6 +19,7 @@ class PessoaJuridica extends Pessoa
     public function setRazao($razao)
     {
         $this->razao = $razao;
+        return $this;
     }
 
     public function getFantasia()
@@ -29,6 +30,7 @@ class PessoaJuridica extends Pessoa
     public function setFantasia($fantasia)
     {
         $this->fantasia = $fantasia;
+        return $this;
     }
 
     public function getCnpj()
@@ -39,6 +41,7 @@ class PessoaJuridica extends Pessoa
     public function setCnpj($cnpj)
     {
         $this->cnpj = $cnpj;
+        return $this;
     }
 
     public function getInscricao()
@@ -49,6 +52,7 @@ class PessoaJuridica extends Pessoa
     public function setInscricao($inscricao)
     {
         $this->inscricao = $inscricao;
+        return $this;
     }
 
     public function getResponsavelId()
@@ -59,6 +63,7 @@ class PessoaJuridica extends Pessoa
     public function setResponsavelId($responsavel_id)
     {
         $this->responsavel_id = $responsavel_id;
+        return $this;
     }
 
     public function getAll()
@@ -67,10 +72,12 @@ class PessoaJuridica extends Pessoa
         $array['razao'] = $this->getRazao();
         $array['cnpj'] = $this->getCnpj();
         $array['fantasia'] = $this->getFantasia();
-        $array['endereco'] = $this->getLogradouro().', '.$this->getNumero().', '. $this->getBairro().', '.$this->getCidade().' - '. $this->getEstado();
+        $array['endereco'] = $this->getEndereco();
         $array['telefone'] = $this->getTelefone();
         $array['inscricao'] = $this->getInscricao();
         $array['responsavel_id'] = $this->getResponsavelId();
+        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
+
         return $array;
     }
 }

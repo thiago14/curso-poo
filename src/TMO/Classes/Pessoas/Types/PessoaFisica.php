@@ -18,6 +18,7 @@ class PessoaFisica extends Pessoa
     public function setSobrenome($sobrenome)
     {
         $this->sobrenome = $sobrenome;
+        return $this;
     }
 
     public function getSexo()
@@ -28,6 +29,7 @@ class PessoaFisica extends Pessoa
     public function setSexo($sexo)
     {
         $this->sexo = $sexo;
+        return $this;
     }
 
     public function getCpf()
@@ -38,6 +40,7 @@ class PessoaFisica extends Pessoa
     public function setCpf($cpf)
     {
         $this->cpf = $cpf;
+        return $this;
     }
 
     public function getIdade()
@@ -48,6 +51,7 @@ class PessoaFisica extends Pessoa
     public function setIdade($idade)
     {
         $this->idade = $idade;
+        return $this;
     }
 
     public function getAll()
@@ -59,6 +63,7 @@ class PessoaFisica extends Pessoa
         $array['idade'] = $this->getIdade();
         $array['telefone'] = $this->getTelefone();
         $array['sexo'] = $this->getSexo();
+        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
 
         return $array;
     }
