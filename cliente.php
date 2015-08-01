@@ -33,7 +33,7 @@ if (empty($id) && $id != 0) { ?>
         </thead>
         <tbody>
         <?php
-        $clienteAll = $array_clientes[$id]->getAll($array_clientes);
+        $clienteAll = $array_clientes[$id]->getAll();
         foreach ($clienteAll as $key => $value):
             if(!is_array($value)):
         ?>
