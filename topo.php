@@ -1,7 +1,9 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
 define('WWW', dirname(__FILE__).DS.'src'.DS);
-require_once('src/TMO/autoload.php'); ?>
+require_once('src/TMO/autoload.php');
+require_once 'src/TMO/Dados/dados_clientes.php';
+?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
@@ -37,8 +39,8 @@ require_once('src/TMO/autoload.php'); ?>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/ProjetoPOO">Home</a></li>
-                <li><a href="/">Clientes</a></li>
+                <li<?php if(!isset($_GET['id'])){ echo ' class="active"' ;} ?>><a href="/ProjetoPOO">Home</a></li>
+                <li<?php if(isset($_GET['id'])){ echo ' class="active"' ;} ?>><a href="/">Clientes</a></li>
                 <li><a href="/">Contato</a></li>
             </ul>
         </div>

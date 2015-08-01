@@ -1,5 +1,8 @@
 <?php
 
+use TMO\Classes\Pessoas\Types\PessoaFisica;
+use TMO\Classes\Pessoas\Types\PessoaJuridica;
+
 include_once 'topo.php';
 require_once 'src/TMO/Dados/dados_clientes.php';
 
@@ -14,24 +17,56 @@ if (empty($id) && $id != 0) { ?>
 <?php } else {
     ?>
     <div class="bs-callout bs-callout-info">
-        <h1>Cliente ID: <?php echo $id . ' - ' . $array_clientes[$id]->getNome(); ?></h1>
+        <?php $title = ($array_clientes[$id] instanceof PessoaFisica) ? $array_clientes[$id]->getNome() : $array_clientes[$id]->getRazao(); ?>
+        <h1>Cliente ID: <?php echo $id . ' - ' . $title ; ?></h1>
     </div>
     <br>
-    <table class="table table-bordered">
-        <tr>
-            <th>Campo</th>
-            <th>Valor</th>
-        </tr>
+    <table class="table table-bordered table-hover table-striped">
+        <colgroup>
+            <col width="30%"><col width="70%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
         <?php
-        $clienteAll = $array_clientes[$id]->getAll();
+        $clienteAll = $array_clientes[$id]->getAll($array_clientes);
         foreach ($clienteAll as $key => $value):
-            ?>
+            if(!is_array($value)):
+        ?>
             <tr>
                 <td><?php echo ucfirst($key); ?></td>
                 <td><?php echo $value; ?></td>
             </tr>
-        <?php endforeach; ?>
+        <?php endif;
+        endforeach; ?>
+        </tbody>
     </table>
+    <?php if($array_clientes[$id] instanceof PessoaJuridica): ?>
+        <h3>Respons&aacute;vel</h3>
+    <table class="table table-bordered table-hover table-striped">
+        <colgroup>
+            <col width="30%"><col width="70%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($clienteAll['responsavel'] as $k => $val) : ?>
+            <tr>
+                <td><?php echo ucfirst($k); ?></td>
+                <td><?php echo $val; ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
     <a href="/ProjetoPOO" class="btn btn-primary">Voltar para Home</a>
     <?php
 }

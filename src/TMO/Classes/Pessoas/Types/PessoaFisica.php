@@ -62,7 +62,7 @@ class PessoaFisica extends Pessoa
         $array['endereco'] = $this->getEndereco();
         $array['idade'] = $this->getIdade();
         $array['telefone'] = $this->getTelefone();
-        $array['sexo'] = $this->getSexo();
+        $array['sexo'] = ($this->getSexo() == 'F') ? 'Feminino': 'Masculino';
         $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
 
         return $array;

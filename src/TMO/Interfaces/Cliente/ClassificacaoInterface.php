@@ -1,6 +1,6 @@
 <?php
 
-namespace TMO\Classes\Cliente;
+namespace TMO\Interfaces\Cliente;
 
 interface ClassificacaoInterface
 {

@@ -2,7 +2,7 @@
 
 namespace TMO\Classes\Cliente\Types;
 use TMO\Classes\Pessoas\Types\PessoaJuridica;
-use TMO\Classes\Cliente\ClassificacaoInterface;
+use TMO\Interfaces\Cliente\ClassificacaoInterface;
 
 class ClienteJuridica extends PessoaJuridica implements ClassificacaoInterface
 {

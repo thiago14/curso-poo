@@ -2,26 +2,16 @@
 
 namespace TMO\Classes\Pessoas;
 use TMO\Classes\Util\Endereco;
+use TMO\Interfaces\Cliente\EnderecoInterface;
 
-class Pessoa extends Endereco
+class Pessoa extends Endereco implements EnderecoInterface
 {
-    protected $tipo_pessoa;
     protected $nome;
     protected $telefone;
     protected $email;
     protected $classificacao;
     protected $endereco;
-
-    public function getTipoPessoa()
-    {
-        return $this->tipo_pessoa;
-    }
-
-    public function setTipoPessoa($tipo_pessoa)
-    {
-        $this->tipo_pessoa = $tipo_pessoa;
-        return $this;
-    }
+    protected $endereco_cobranca;
 
     public function getNome()
     {
@@ -58,11 +48,10 @@ class Pessoa extends Endereco
 
     public function getClassificacao()
     {
-
-        $nota = '';
+        $nota = '<span>'. $this->classificacao .'</span>';
         if ($this->classificacao > 0) {
             for($i=1; $i <= $this->classificacao; $i++) {
-                $nota .= '<i class="glyphicon glyphicon-star"></i> ';
+                $nota .= '<i class="glyphicon glyphicon-star"></i>';
             }
         }
         return $nota;
@@ -83,6 +72,16 @@ class Pessoa extends Endereco
     {
         $this->endereco = $endereco;
         return $this;
+    }
+
+    public function getEnderecoCobranca()
+    {
+        return $this->endereco_cobranca;
+    }
+
+    public function setEnderecoCobranca(Endereco $endereco_cobranca)
+    {
+        $this->endereco_cobranca = $endereco_cobranca;
     }
 
 }

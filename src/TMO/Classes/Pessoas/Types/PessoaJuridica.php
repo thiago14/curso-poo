@@ -1,6 +1,7 @@
 <?php
 
 namespace TMO\Classes\Pessoas\Types;
+use TMO\Classes\Cliente\Types\ClienteFisica;
 use TMO\Classes\Pessoas\Pessoa;
 
 class PessoaJuridica extends Pessoa
@@ -68,6 +69,7 @@ class PessoaJuridica extends Pessoa
 
     public function getAll()
     {
+        global $array_clientes;
         $array['cnpj'] = $this->getCnpj();
         $array['razao'] = $this->getRazao();
         $array['cnpj'] = $this->getCnpj();
@@ -75,8 +77,8 @@ class PessoaJuridica extends Pessoa
         $array['endereco'] = $this->getEndereco();
         $array['telefone'] = $this->getTelefone();
         $array['inscricao'] = $this->getInscricao();
-        $array['responsavel_id'] = $this->getResponsavelId();
         $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
+        $array['responsavel'] = $array_clientes[$this->getResponsavelId()]->getAll();
 
         return $array;
     }
