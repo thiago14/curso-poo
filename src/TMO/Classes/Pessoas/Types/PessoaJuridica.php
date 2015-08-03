@@ -1,6 +1,7 @@
 <?php
 
 namespace TMO\Classes\Pessoas\Types;
+use Dados;
 use TMO\Classes\Cliente\Types\ClienteFisica;
 use TMO\Classes\Pessoas\Pessoa;
 
@@ -78,7 +79,7 @@ class PessoaJuridica extends Pessoa
         $array['telefone'] = $this->getTelefone();
         $array['inscricao'] = $this->getInscricao();
         $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
-        $array['responsavel'] = $array_clientes[$this->getResponsavelId()]->getAll();
+        $array['responsavel'] = $array_clientes->find($this->getResponsavelId())->getAll();
 
         return $array;
     }

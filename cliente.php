@@ -17,7 +17,7 @@ if (empty($id) && $id != 0) { ?>
 <?php } else {
     ?>
     <div class="bs-callout bs-callout-info">
-        <?php $title = ($array_clientes[$id] instanceof PessoaFisica) ? $array_clientes[$id]->getNome() : $array_clientes[$id]->getRazao(); ?>
+        <?php $title = ($array_clientes->find($id) instanceof PessoaFisica) ? $array_clientes->find($id)->getNome() : $array_clientes->find($id)->getRazao(); ?>
         <h1>Cliente ID: <?php echo $id . ' - ' . $title ; ?></h1>
     </div>
     <br>
@@ -33,7 +33,7 @@ if (empty($id) && $id != 0) { ?>
         </thead>
         <tbody>
         <?php
-        $clienteAll = $array_clientes[$id]->getAll();
+        $clienteAll = $array_clientes->find($id)->getAll();
         foreach ($clienteAll as $key => $value):
             if(!is_array($value)):
         ?>
@@ -45,7 +45,7 @@ if (empty($id) && $id != 0) { ?>
         endforeach; ?>
         </tbody>
     </table>
-    <?php if($array_clientes[$id] instanceof PessoaJuridica): ?>
+    <?php if($array_clientes->find($id) instanceof PessoaJuridica): ?>
         <h3>Respons&aacute;vel</h3>
     <table class="table table-bordered table-hover table-striped">
         <colgroup>

@@ -65,14 +65,14 @@ $clientes6->setNome('Luana')
 
 $clientes6J = new ClienteJuridica();
 $clientes6J->setRazao('Barbosa Barros ME')
-    ->setFantasia('Barbosa & Cia')
-    ->setCnpj('05.363.048/0001-22')
-    ->setInscricao('isenta')
-    ->setEndereco(new Endereco('Rua Guilherme Roeder Filho', 1804,'','Joinville','SC'))
-    ->setTelefone('(47) 4488-4856')
-    ->setClassificacao(2)
-    ->setResponsavelId(5)
-    ->setEnderecoCobranca(new Endereco('Rua Guilherme Roeder Filho', 1864,'','Joinville','SC'));
+        ->setFantasia('Barbosa & Cia')
+        ->setCnpj('05.363.048/0001-22')
+        ->setInscricao('isenta')
+        ->setEndereco(new Endereco('Rua Guilherme Roeder Filho', 1804,'','Joinville','SC'))
+        ->setTelefone('(47) 4488-4856')
+        ->setClassificacao(2)
+        ->setResponsavelId(5)
+        ->setEnderecoCobranca(new Endereco('Rua Guilherme Roeder Filho', 1864,'','Joinville','SC'));
 
 //-----------------------------------------------------------------------//
 $clientes7 = new ClienteFisica();
@@ -116,13 +116,41 @@ $clientes10->setNome('Daniel')
         ->setSexo('M');
 $clientes10J = new ClienteJuridica();
 $clientes10J->setRazao('Daniel Costa ME')
-    ->setFantasia('Costa Empreendimentos')
-    ->setCnpj('03.392.204/0001-60')
-    ->setInscricao(36459)
-    ->setEndereco(new Endereco('Rua Uberaba', 1082,'', 'Goiânia','GO'))
-    ->setTelefone('(62) 9290-7591')
-    ->setClassificacao(3)
-    ->setResponsavelId(10);
+        ->setFantasia('Costa Empreendimentos')
+        ->setCnpj('03.392.204/0001-60')
+        ->setInscricao(36459)
+        ->setEndereco(new Endereco('Rua Uberaba', 1082,'', 'Goiânia','GO'))
+        ->setTelefone('(62) 9290-7591')
+        ->setClassificacao(3)
+        ->setResponsavelId(10);
 //-----------------------------------------------------------------------//
+
+class Dados{
+
+    public $array_cliente;
+
+    public function __construct($dados)
+    {
+        foreach($dados as $dado){
+            $this->create($dado);
+        }
+    }
+
+    public function create($dados)
+    {
+        $this->array_cliente[] = $dados;
+        return $this;
+    }
+
+    public function find($id)
+    {
+            return $this->array_cliente[$id];
+    }
+
+    public function all()
+    {
+        return $this->array_cliente;
+    }
+}
 global $array_clientes;
-$array_clientes = [$clientes1,$clientes2, $clientes3, $clientes4, $clientes5, $clientes6, $clientes6J, $clientes7, $clientes8, $clientes9, $clientes10, $clientes10J];
+$array_clientes = new Dados([$clientes1,$clientes2, $clientes3, $clientes4, $clientes5, $clientes6, $clientes6J, $clientes7, $clientes8, $clientes9, $clientes10, $clientes10J]);
