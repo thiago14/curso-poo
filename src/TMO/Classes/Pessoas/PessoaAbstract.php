@@ -4,7 +4,7 @@ namespace TMO\Classes\Pessoas;
 use TMO\Classes\Util\Endereco;
 use TMO\Interfaces\Cliente\EnderecoInterface;
 
-class Pessoa extends Endereco implements EnderecoInterface
+class PessoaAbstract extends Endereco implements EnderecoInterface
 {
     protected $nome;
     protected $telefone;

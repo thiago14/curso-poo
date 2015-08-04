@@ -2,7 +2,7 @@
 use TMO\Classes\Pessoas\Types\PessoaFisica;
 
 include_once 'topo.php';
-//print_r($array_clientes);
+
 $orderID = $orderNome = 'DESC';
 $class_link_id = $class_link_nome = 'bottom';
 
@@ -10,7 +10,6 @@ $class_link_id = $class_link_nome = 'bottom';
     <div class="bs-callout bs-callout-info">
         <h1>Lista de Clientes</h1>
     </div>
-<!--<pre>--><?php //print_r($array_clientes); ?><!--</pre>-->
     <br>
     <table id="clientes" class="table table-bordered table-hover">
         <thead>

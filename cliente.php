@@ -4,7 +4,6 @@ use TMO\Classes\Pessoas\Types\PessoaFisica;
 use TMO\Classes\Pessoas\Types\PessoaJuridica;
 
 include_once 'topo.php';
-require_once 'src/TMO/Dados/dados_clientes.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id) && $id != 0) { ?>

@@ -1,9 +1,9 @@
 <?php
 
 namespace TMO\Classes\Pessoas\Types;
-use TMO\Classes\Pessoas\Pessoa;
+use TMO\Classes\Pessoas\PessoaAbstract;
 
-class PessoaFisica extends Pessoa
+class PessoaFisica extends PessoaAbstract
 {
     protected $sobrenome;
     protected $sexo;
