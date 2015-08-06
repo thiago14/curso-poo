@@ -1,9 +1,3 @@
-<?php
-define('DS', DIRECTORY_SEPARATOR);
-define('WWW', dirname(__FILE__).DS.'src'.DS);
-require_once('src/TMO/autoload.php');
-require_once 'src/TMO/Dados/dados_clientes.php';
-?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
@@ -13,7 +7,7 @@ require_once 'src/TMO/Dados/dados_clientes.php';
     <title>Curso Code Education | POO</title>
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/base.css" rel="stylesheet">
+    <link href="public/css/base.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

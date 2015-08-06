@@ -3,9 +3,6 @@
 use TMO\Classes\Pessoas\Types\PessoaFisica;
 use TMO\Classes\Pessoas\Types\PessoaJuridica;
 
-include_once 'topo.php';
-
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (empty($id) && $id != 0) { ?>
     <div class="bs-callout bs-callout-danger">
         <h1>Ops! Faltou o ID do cliente.</h1>

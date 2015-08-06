@@ -13,9 +13,9 @@
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-<link rel="stylesheet" href="css/theme.bootstrap.css">
-<script type="text/javascript" src="js/jquery.tablesorter.min.js" ></script>
-<script type="text/javascript" src="js/jquery.tablesorter.widgets.js" ></script>
+<link rel="stylesheet" href="public/css/theme.bootstrap.css">
+<script type="text/javascript" src="public/js/jquery.tablesorter.min.js" ></script>
+<script type="text/javascript" src="public/js/jquery.tablesorter.widgets.js" ></script>
 <script type="text/javascript">
     $(function() {
         $.extend($.tablesorter.themes.bootstrap, {
