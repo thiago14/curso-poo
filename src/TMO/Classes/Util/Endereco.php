@@ -10,14 +10,16 @@ class Endereco
     protected $cidade;
     protected $estado;
     protected $cep;
+    protected $cobranca;
 
-    public function __construct($logradouro='', $numero='', $bairro='', $cidade='', $estado='',$cep=''){
+    public function __construct($logradouro='', $numero='', $bairro='', $cidade='', $estado='',$cep='', $cobranca = 0){
         $this->setLogradouro($logradouro);
         $this->setNumero($numero);
         $this->setBairro($bairro);
         $this->setCidade($cidade);
         $this->setEstado($estado);
         $this->setCep($cep);
+        $this->setCobranca($cobranca);
     }
     public function getLogradouro()
     {
@@ -82,6 +84,17 @@ class Endereco
     public function setCep($cep)
     {
         $this->cep = utf8_encode($cep);
+        return $this;
+    }
+
+    public function getCobranca()
+    {
+        return $this->cobranca;
+    }
+
+    public function setCobranca($cobranca)
+    {
+        $this->cobranca = $cobranca;
         return $this;
     }
 

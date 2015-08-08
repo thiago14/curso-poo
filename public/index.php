@@ -3,8 +3,13 @@ use TMO\Classes\Pessoas\Types\PessoaFisica;
 
 include_once 'topo.php';
 
-$orderID = $orderNome = 'DESC';
-$class_link_id = $class_link_nome = 'bottom';
+$con = new \TMO\Connection\BancoPDO();
+$sql = new \TMO\Connection\Sql($con->getCon());
+$array_clientes = $sql->all();
+
+echo '<pre>';
+print_r($array_clientes);
+echo '</pre>';
 
 ?>
     <div class="bs-callout bs-callout-info">
@@ -22,7 +27,7 @@ $class_link_id = $class_link_nome = 'bottom';
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($array_clientes->all() as $key => $cliente): ?>
+        <?php foreach ($array_clientes as $key => $cliente): ?>
             <?php
                 if($cliente instanceof PessoaFisica){
                     $tipo_pessoa = 'Pessoa F&iacute;sica';
