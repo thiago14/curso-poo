@@ -58,7 +58,10 @@ abstract class PessoaAbstract extends Endereco implements EnderecoInterface
         return $this;
     }
 
-    public function getClassificacao()
+    public function getClassificacao(){
+        return $this->classificacao;
+    }
+    public function getClassificacaoFormatada()
     {
         $nota = '<span>'. $this->classificacao .'</span>';
         if ($this->classificacao > 0) {
@@ -80,11 +83,6 @@ abstract class PessoaAbstract extends Endereco implements EnderecoInterface
         return $this->endereco;
     }
 
-    public function getEnderecoFormatado()
-    {
-        return $this->endereco->getLogradouro().', '.$this->endereco->getNumero().', '. $this->endereco->getBairro().', '.$this->endereco->getCidade().' - '. $this->endereco->getEstado();
-    }
-
     public function setEndereco(Endereco $endereco)
     {
         $this->endereco[] = $endereco;
@@ -98,8 +96,9 @@ abstract class PessoaAbstract extends Endereco implements EnderecoInterface
 
     public function setEnderecoCobranca(Endereco $endereco_cobranca)
     {
-        $endereco_cobranca->setCobranca(1);
-        $this->endereco[] = $endereco_cobranca;
+        $this->endereco_cobranca = $endereco_cobranca;
+        $this->endereco_cobranca->setCobranca(1);
+        $this->endereco[] = $this->endereco_cobranca;
         return $this;
     }
 

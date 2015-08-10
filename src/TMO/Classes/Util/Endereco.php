@@ -28,7 +28,7 @@ class Endereco
 
     public function setLogradouro($logradouro)
     {
-        $this->logradouro = utf8_encode($logradouro);
+        $this->logradouro = $logradouro;
         return $this;
     }
 
@@ -39,7 +39,7 @@ class Endereco
 
     public function setNumero($numero)
     {
-        $this->numero = utf8_encode($numero);
+        $this->numero = $numero;
         return $this;
     }
 
@@ -50,7 +50,7 @@ class Endereco
 
     public function setBairro($bairro)
     {
-        $this->bairro = utf8_encode($bairro);
+        $this->bairro = $bairro;
         return $this;
     }
 
@@ -61,7 +61,7 @@ class Endereco
 
     public function setCidade($cidade)
     {
-        $this->cidade = utf8_encode($cidade);
+        $this->cidade = $cidade;
         return $this;
     }
 
@@ -72,7 +72,7 @@ class Endereco
 
     public function setEstado($estado)
     {
-        $this->estado = utf8_encode($estado);
+        $this->estado = $estado;
         return $this;
     }
 
@@ -83,7 +83,7 @@ class Endereco
 
     public function setCep($cep)
     {
-        $this->cep = utf8_encode($cep);
+        $this->cep = $cep;
         return $this;
     }
 

@@ -59,11 +59,15 @@ class PessoaFisica extends PessoaAbstract
         $array['cpf'] = $this->getCpf();
         $array['nome'] = $this->getNome();
         $array['sobrenome'] = $this->getSobrenome();
-        $array['endereco'] = $this->getEndereco();
         $array['idade'] = $this->getIdade();
         $array['telefone'] = $this->getTelefone();
         $array['sexo'] = ($this->getSexo() == 'F') ? 'Feminino': 'Masculino';
-        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
+        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacaoFormatada();
+        if($this->getCobranca() == 1){
+            $array['endere&ccedil;o Cobran&ccedil;a'] = $this->getEndereco();
+        }else{
+            $array['endere&ccedil;o'] = $this->getEndereco();
+        }
 
         return $array;
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace TMO\Classes\Pessoas\Types;
+use TMO\Classes\Cliente\ClienteDb;
 use TMO\Classes\Pessoas\PessoaAbstract;
 
 class PessoaJuridica extends PessoaAbstract
@@ -68,16 +69,20 @@ class PessoaJuridica extends PessoaAbstract
 
     public function getAll()
     {
-        global $array_clientes;
+        $responsavel = ClienteDb::find($this->getResponsavelId());
         $array['cnpj'] = $this->getCnpj();
         $array['razao'] = $this->getRazao();
         $array['cnpj'] = $this->getCnpj();
         $array['fantasia'] = $this->getFantasia();
-        $array['endereco'] = $this->getEndereco();
         $array['telefone'] = $this->getTelefone();
         $array['inscricao'] = $this->getInscricao();
-        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacao();
-        $array['responsavel'] = $array_clientes->find($this->getResponsavelId())->getAll();
+        $array['classifica&ccedil;&atilde;o'] = $this->getClassificacaoFormatada();
+        $array['responsavel'] = $responsavel->getAll();
+        if($this->getCobranca() == 1){
+            $array['endere&ccedil;o Cobran&ccedil;a'] = $this->getEndereco();
+        }else{
+            $array['endere&ccedil;o'] = $this->getEndereco();
+        }
 
         return $array;
     }

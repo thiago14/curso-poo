@@ -22,7 +22,7 @@
             sortAsc    : 'icon-chevron-up glyphicon glyphicon-chevron-up',     // includes classes for Bootstrap v2 & v3
             sortDesc   : 'icon-chevron-down glyphicon glyphicon-chevron-down', // includes classes for Bootstrap v2 & v3
         });
-        $("table").tablesorter({
+        $(".table-sorter").tablesorter({
             theme: "bootstrap",
             widthFixed: true,
             headerTemplate: '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!

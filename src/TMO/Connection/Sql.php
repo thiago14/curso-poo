@@ -74,18 +74,22 @@ class Sql
     public function all(){
         $this->query = $this->pdo->prepare("SELECT * FROM poo_clientes");
         $this->query->execute();
-        $clientes = $this->query->fetchAll(\PDO::FETCH_ASSOC);
+        $clientes['cliente'] = $this->query->fetchAll(\PDO::FETCH_OBJ);
 
         return $clientes;
     }
 
     public function find($id){
-        $this->query = $this->pdo->prepare("SELECT * FROM poo_clientes WHERE id = :id");
+        $this->query = $this->pdo->prepare("SELECT * FROM `poo_clientes` WHERE id = :id");
         $this->query->bindParam(':id', $id);
         $this->query->execute();
-        $clientes = $this->query->fetchAll(\PDO::FETCH_ASSOC);
+        $array['cliente'] = $this->query->fetchAll(\PDO::FETCH_OBJ);
+        $this->query = $this->pdo->prepare("SELECT * FROM `poo_enderecos` WHERE cliente_id = :id");
+        $this->query->bindParam(':id', $id);
+        $this->query->execute();
+        $array['endereco'] = $this->query->fetchAll(\PDO::FETCH_OBJ);
 
-        return $clientes;
+        return $array;
     }
 
 }

@@ -6,7 +6,7 @@ use TMO\Classes\Util\Endereco;
 $con = new \TMO\Connection\BancoPDO();
 $sql = new \TMO\Connection\Sql($con->getCon());
 $array_clientes = $sql->all();
-if(empty($array_clientes)) {
+if(empty($array_clientes['cliente'])) {
     $clientes1 = new ClienteFisica();
     $clientes1->setNome('Thiago')
         ->setSobrenome('Mori de Oliveira')
